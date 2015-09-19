@@ -1,0 +1,11 @@
+body {
+  padding-top: 5rem;
+}
+
+.circle-button {
+  width: 3rem;
+  height: 3rem;
+  padding: 3rem 1.6rem;
+  border-radius: 6rem;
+  background-color: #F00;
+}
