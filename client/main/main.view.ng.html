@@ -8,42 +8,49 @@
 </div>
 
 <div class="container">
-  <h3>Color <span class="label label-default" style="background-color: {{getRgba(color)}}">SAMPLE COLOR</span></h3>
-  <form class="form-inline" ng-submit="setColor(color)">
-    <div class="form-group">
-      <label>Red</label>
-      <input type="number" ng-model="color.red" class="form-control" placeholder="0 ~ 255">
+  <h3>Color <span class="label label-pill label-default" style="background-color: {{getRgba(color)}}">SAMPLE COLOR</span></h3>
+
+  <div class="row">
+    <div class="col-md-3">
+      <label>RED: {{color.red}}</label>
+      <span slider ng-model="color.red" min="0" max="255"></span>
     </div>
-    <div class="form-group">
-      <label>Green</label>
-      <input type="number" ng-model="color.green" class="form-control" placeholder="0 ~ 255">
+    <div class="col-md-3">
+      <label>GREEN: {{color.green}}</label>
+      <span slider ng-model="color.green" min="0" max="255"></span>
     </div>
-    <div class="form-group">
-      <label>Blue</label>
-      <input type="number" ng-model="color.blue" class="form-control" placeholder="0 ~ 255">
+    <div class="col-md-3">
+      <label>BLUE: {{color.blue}}</label>
+      <span slider ng-model="color.blue" min="0" max="255"></span>
     </div>
-    <div class="form-group">
-      <label>Brightness</label>
-      <input type="number" ng-model="color.alpha" class="form-control" placeholder="0 ~ 100">
+    <div class="col-md-3">
+      <label>BRIGHTNESS: {{color.alpha}}%</label>
+      <span slider ng-model="color.alpha" min="0" max="100"></span>
     </div>
-    <button type="submit" class="btn btn-primary">Set Color</button>
-  </form>
+  </div>
+
+  <button type="submit" ng-click="setColor(color)" class="btn btn-primary">Set Color</button>
+  <input colorpicker type="text" class="form-control" ng-model="color.hex" />
 </div>
 <br />
 
 <div class="jumbotron">
   <div class="container">
     <div class="row text-center">
-      <div class="col-lg-4">
+      <div class="col-lg-3">
         <a href="#" class="circle-button" ng-click="light({ mode: 'on' })">Light On</a>
       </div>
 
-      <div class="col-lg-4">
-        <a href="#" class="circle-button" ng-click="light()">Light Off</a>
+      <div class="col-lg-3">
+        <a href="#" class="circle-button" ng-click="light({ mode: 'breath' })">Breath</a>
       </div>
 
-      <div class="col-lg-4">
+      <div class="col-lg-3">
         <a href="#" class="circle-button" ng-click="light({ mode: 'rainbow' })">Rainbow</a>
+      </div>
+
+      <div class="col-lg-3">
+        <a href="#" class="circle-button" ng-click="light()">Light Off</a>
       </div>
     </div>
   </div>
