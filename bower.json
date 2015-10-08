@@ -11,5 +11,7 @@
     "tests"
   ],
   "dependencies": {
+    "angular-bootstrap-colorpicker": "~3.0.19",
+    "angular-bootstrap-slider": "~0.1.18"
   }
 }
