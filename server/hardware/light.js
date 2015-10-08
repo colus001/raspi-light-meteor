@@ -48,8 +48,11 @@ class Light {
     ws281x.render(this.pixelData);
   }
 
-  turnnoff() {
+  turnoff() {
+    this.setColors(0,0,0);
+    ws281x.render(this.pixelData);
     clearInterval(this.lightInterval);
+
   }
 
   rgb2Int(r, g, b) {
