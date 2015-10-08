@@ -30,7 +30,7 @@ class Light {
 
     this.lightInterval = setInterval(function () {
       for (var i = 0; i < NUM_LEDS; i++) {
-        pixelData[i] = NeoPixelUtil.rgb2Int(color.red, color.green, color.blue) / offset;
+        pixelData[i] = NeoPixelUtil.rgb2Int(color.red/offset, color.green/offset, color.blue/offset);
       }
       offset = (offset + 1) % 100;
       ws281x.render(pixelData);
