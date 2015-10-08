@@ -24,15 +24,29 @@ class Light {
   }
 
   breath (color) {
-    var offset = 0;
     var pixelData = this.pixelData;
     var color = this.color;
 
+    var offset = 0;
+    var isAdding = true;
+
     this.lightInterval = setInterval(function () {
-      for (var i = 0; i < NUM_LEDS; i++) {
-        pixelData[i] = NeoPixelUtil.rgb2Int(color.red/offset, color.green/offset, color.blue/offset);
+      if ( isAdding ) {
+        offset += 1;
+      } else {
+        offset -= 1;
       }
-      offset = (offset + 1) % 100;
+
+      if (offset <= 0) {
+        offset = 0;
+        isAdding = true;
+      } else if (offset > 100) {
+        offset = 100;
+        isAdding = false;
+      }
+      for (var i = 0; i < NUM_LEDS; i++) {
+        pixelData[i] = NeoPixelUtil.rgb2Int(parseInt(color.red/offset), parseInt(color.green/offset), parseInt(color.blue/offset));
+      }
       ws281x.render(pixelData);
     }, 1000 / 30);
   }
