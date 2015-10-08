@@ -27,7 +27,7 @@ class Light {
     var pixelData = this.pixelData;
     var color = this.color;
 
-    var offset = 50;
+    var offset = 100;
     var isAdding = true;
 
     this.lightInterval = setInterval(function () {
@@ -37,8 +37,8 @@ class Light {
         offset -= 1;
       }
 
-      if (offset <= 50) {
-        offset = 50;
+      if (offset <= 100) {
+        offset = 100;
         isAdding = true;
       } else if (offset > 255) {
         offset = 255;
@@ -50,7 +50,7 @@ class Light {
         pixelData[i] = NeoPixelUtil.rgb2Int(colorData[0], colorData[1], colorData[2]);
       }
       ws281x.render(pixelData);
-    }, 1000 / 100);
+    }, 1000 / 50);
   }
 
   rainbow () {
