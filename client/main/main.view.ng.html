@@ -8,7 +8,7 @@
 </div>
 
 <div class="container">
-  <h3>Color</h3>
+  <h3>Color <span class="label label-default" style="background-color: {{getRgba(color)}}">SAMPLE COLOR</span></h3>
   <form class="form-inline" ng-submit="setColor(color)">
     <div class="form-group">
       <label>Red</label>
@@ -24,7 +24,7 @@
     </div>
     <div class="form-group">
       <label>Brightness</label>
-      <input type="number" ng-model="color.brightness" class="form-control" placeholder="0 ~ 255">
+      <input type="number" ng-model="color.alpha" class="form-control" placeholder="0 ~ 100">
     </div>
     <button type="submit" class="btn btn-primary">Set Color</button>
   </form>
