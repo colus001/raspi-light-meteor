@@ -1,19 +1,77 @@
-<div class="container">
-
-</div>
-
-<div class="container">
-  <div class="row text-center">
-    <div class="col-lg-4">
-      <a href="#" class="circle-button" ng-click="light({ mode: 'on' })">Light On</a>
-    </div><!-- /.col-lg-4 -->
-
-    <div class="col-lg-4">
-      <a href="#" class="circle-button" ng-click="light()">Light Off</a>
-    </div><!-- /.col-lg-4 -->
-
-    <div class="col-lg-4">
-      <a href="#" class="circle-button" ng-click="light({ mode: 'rainbow' })">Rainbow</a>
-    </div><!-- /.col-lg-4 -->
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <div class="container">
+    <h1>Raspi Light Meteor!</h1>
+    <p>Raspberry PI Light with Meteor and Angular.js.</p>
+    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
   </div>
 </div>
+
+<div class="container">
+  <h3>Color</h3>
+  <form class="form-inline" ng-submit="setColor(color)">
+    <div class="form-group">
+      <label>Red</label>
+      <input type="number" ng-model="color.red" class="form-control" placeholder="0 ~ 255">
+    </div>
+    <div class="form-group">
+      <label>Green</label>
+      <input type="number" ng-model="color.green" class="form-control" placeholder="0 ~ 255">
+    </div>
+    <div class="form-group">
+      <label>Blue</label>
+      <input type="number" ng-model="color.blue" class="form-control" placeholder="0 ~ 255">
+    </div>
+    <div class="form-group">
+      <label>Brightness</label>
+      <input type="number" ng-model="color.brightness" class="form-control" placeholder="0 ~ 255">
+    </div>
+    <button type="submit" class="btn btn-primary">Set Color</button>
+  </form>
+</div>
+<br />
+
+<div class="jumbotron">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-lg-4">
+        <a href="#" class="circle-button" ng-click="light({ mode: 'on' })">Light On</a>
+      </div>
+
+      <div class="col-lg-4">
+        <a href="#" class="circle-button" ng-click="light()">Light Off</a>
+      </div>
+
+      <div class="col-lg-4">
+        <a href="#" class="circle-button" ng-click="light({ mode: 'rainbow' })">Rainbow</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-4">
+      <h2>Heading</h2>
+      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+      <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+      <h2>Heading</h2>
+      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+      <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+   </div>
+    <div class="col-md-4">
+      <h2>Heading</h2>
+      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+      <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+    </div>
+  </div>
+
+  <hr>
+
+  <footer>
+    <p>&copy; Company 2014</p>
+  </footer>
+</div> <!-- /container -->
