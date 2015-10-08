@@ -45,14 +45,12 @@ class Light {
         isAdding = false;
       }
 
-      console.log(offset);
-
       for (var i = 0; i < NUM_LEDS; i++) {
         var colorData = NeoPixelUtil.getOffsetColor(color, offset);
         pixelData[i] = NeoPixelUtil.rgb2Int(colorData[0], colorData[1], colorData[2]);
       }
       ws281x.render(pixelData);
-    }, 1000 / 50);
+    }, 1000 / 100);
   }
 
   rainbow () {
