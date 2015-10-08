@@ -40,15 +40,17 @@ class Light {
       if (offset <= 0) {
         offset = 0;
         isAdding = true;
-      } else if (offset > 100) {
-        offset = 100;
+      } else if (offset > 255) {
+        offset = 255;
         isAdding = false;
       }
+
       for (var i = 0; i < NUM_LEDS; i++) {
-        pixelData[i] = NeoPixelUtil.rgb2Int(parseInt(color.red/offset), parseInt(color.green/offset), parseInt(color.blue/offset));
+        var colorData = NeoPixelUtil.getOffsetColor(color, offset);
+        pixelData[i] = NeoPixelUtil.rgb2Int(colorData[0], colorData[1], colorData[2]);
       }
       ws281x.render(pixelData);
-    }, 1000 / 30);
+    }, 1000 / 10);
   }
 
   rainbow () {
@@ -75,6 +77,13 @@ class Light {
 }
 
 NeoPixelUtil = {
+  getOffsetColor(color, offset) {
+    var red = (color.red-offset > 0) ? parseInt(color.red-offset) : 0;
+    var green = (color.green-offset > 0) ? parseInt(color.green-offset) : 0;
+    var blue = (color.blue-offset > 0) ? parseInt(color.blue-offset) : 0;
+    return [ red, green, blue ];
+  },
+
   colorwheel(pos) {
     pos = 255 - pos;
     if (pos < 85) { return this.rgb2Int(255 - pos * 3, 0, pos * 3); }
